@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'VCR OSD Mono';
+  font-style: normal;
+  font-weight: normal;
+  src: local('VCR OSD Mono'), 
+       url('../fonts/VCR_OSD_MONO_1.001.woff') format('woff'), 
+       url('../fonts/VCR_OSD_MONO_1.001.ttf') format('truetype');
+}
+
+::-webkit-scrollbar {
+  width: 8px; /* Adjust width */
+}
+::-webkit-scrollbar-thumb {
+  background-color: #9fecb1; /* Green thumb */
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background-color: #000000; /* Black track */
+}
+
+html {
+  scrollbar-color: #9fecb1 #000000; /* thumb color track color */
+}
+
+body {
+  @apply font-vcr;
+}
+
+/* Flicker keyframe for optional use */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.9; }
+}
+
+/* Base glow styling */
+.glow {
+  position: relative;
+  color: #9fecb1;
+  text-shadow: none;
+  transition: text-shadow 0.10s ease-in-out;
+}
+
+/* Hover glow effect, applied only on hover with more subtle intensity */
+.glow:hover {
+  text-shadow: 0 0 2px #9fecb1, 0 0 3px #9fecb1; /* Further reduced glow values */
+}
+
+/* Active glow for scrolled-to section with even more subtle intensity */
+.glow-active {
+  text-shadow: 0 0 2px #9fecb1, 0 0 3px #9fecb1; /* Further reduced glow values */
+}
+
+/* Blinking cursor effect */
+.cursor-blink {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: #9fecb1;
+  margin-left: 5px;
+  vertical-align: text-bottom; /* Aligns it better with text */
+  animation: blink 1s steps(2, start) infinite;
+}
+
+/* Icon glow effect on hover */
+.icon-glow:hover {
+  color: #b3ffce; /* Lighter green color to simulate glow */
+  filter: drop-shadow(0 0 4px #b3ffce);
+  transition: color 0.10s ease-in-out, filter 0.10s ease-in-out;
+}
+
+/* Initially hide the title */
+.hidden-title {
+  visibility: hidden;
+}
+
+/* When the title is in focus, make it visible */
+.visible-title {
+  visibility: visible;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Typing effect */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typing-effect {
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block; 
+  position: relative;/* Keep relative for cursor positioning */
+  animation: typing 3s steps(30, end) forwards;
+}
+
+.typing-effect::after {
+  content: "|"; 
+  position: relative; 
+  margin-left: 5px; 
+  animation: cursor-blink 0.5s step-end infinite;
+  animation-delay: 0s; 
+}
+
+/* Smooth triangle animation */
+@keyframes triangle-slide {
+  from {
+    transform: translateX(-30px) translateY(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) translateY(-50%);
+    opacity: 1;
+  }
+}
+
+/* Blinking triangle effect */
+@keyframes triangle-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Triangle Indicator */
+.triangle-indicator {
+  position: absolute;
+  left: -15px;
+  top: 50%; /* Ensures consistent vertical alignment */
+  transform: translateY(-50%); /* Prevents shifting during animation */
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 10px solid #9fecb1; /* Match the green color */
+  animation: triangle-slide 0.3s ease-out, triangle-blink 1s infinite;
+}
+
+/* Change the background color of selected text and text color */
+::selection {
+  background-color: rgba(159, 236, 177, 0.7); /* Green highlight */
+  color: black; /* Black text when selected */
+}
+
+::moz-selection {
+  background-color: rgba(159, 236, 177, 0.7); /* For Firefox */
+  color: black;
+}
