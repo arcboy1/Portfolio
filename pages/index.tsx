@@ -404,12 +404,7 @@ function Projects() {
       </a>
 
       {/* Project 4: Portfolio Website */}
-      <a
-        href="http://localhost:3000"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="bg-black p-4 border border-green-300 rounded transition-all duration-300 hover:shadow-lg hover:ring-2 hover:ring-green-300 block"
-      >
+      <div className="bg-black p-4 border border-green-300 rounded transition-all duration-300 hover:shadow-lg hover:ring-2 hover:ring-green-300 block">
         <h3 className="text-xl text-green-300 font-semibold mb-2">
           Portfolio Website
         </h3>
@@ -422,7 +417,7 @@ function Projects() {
           <strong>Technologies Used</strong>: Next.js, Tailwind CSS, Vercel,
           Formspree
         </p>
-      </a>
+      </div>
     </div>
   );
 }

@@ -108,9 +108,18 @@
   margin-left: 0.2rem;
 }
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
+@media (max-width: 768px) {
+  section {
+    min-height: auto; /* Allow content to dictate height */
+    padding: 4rem 1.5rem; /* Adjust padding for mobile layout */
+  }
+
+  h2 {
+    font-size: 1.5rem; /* Reduce heading size for smaller screens */
+    line-height: 1.2; /* Adjust line spacing */
+  }
+
+  .content {
+    padding: 1rem 0; /* Ensure spacing for content */
   }
 }
