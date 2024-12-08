@@ -304,9 +304,9 @@ function Experience() {
             <Image
               src="https://github-readme-stats.vercel.app/api?username=arcboy1&show_icons=true&theme=radical&bg_color=00000000&title_color=9fecb1&text_color=9fecb1&icon_color=9fecb1&hide_border=true"
               alt="GitHub Stats"
-              layout="intrinsic"
               width={600}
               height={300}
+              unoptimized
               className="rounded-lg p-4 border border-green-300"
             />
           </a>
@@ -322,9 +322,9 @@ function Experience() {
             <Image
               src="https://github-readme-stats.vercel.app/api/top-langs/?username=arcboy1&theme=radical&bg_color=00000000&title_color=9fecb1&text_color=9fecb1&bar_color=9fecb1&hide_border=true"
               alt="Top Languages"
-              layout="intrinsic"
               width={600}
               height={300}
+              unoptimized
               className="rounded-lg p-4 border border-green-300"
             />
           </a>
